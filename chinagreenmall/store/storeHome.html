@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+     <link rel="stylesheet" href="../css/slogcommon.css" />
+     <link rel="stylesheet" type="text/css" href="../css/slegtrans.css"/>
+</head>
+
+<style type="text/css">
+   
+    
+    a:hover{
+    	color: #149006;
+    }
+    a{
+    	color: #000000;
+    }
+    /*.mui-search .mui-placeholder{
+    	text-align:left
+    }
+    */
+   .mui-title-bg{
+			background-color: rgb(255,255,255);
+		}
+		.mui-title-header{
+			background: transparent;
+		}
+		
+		.mui-bar{
+			border-bottom: 1px solid transparent;
+			webkit-box-shadow: 0 0 1px rgba(255,255,255,0.0);
+			box-shadow: 0 0 1px rgba(255,255,255,0)
+		}
+		
+		.mui-bar-nav{
+			box-shadow: 0px,0px,0px,transparent;
+			webkit-box-shadow: 0 1px 6px #fff0;
+		}
+   .mui-btn, button, input[type=button], input[type=reset], input[type=submit]{
+				padding: 0px 12px;
+			}
+			
+			.merchant_mian {
+				background-color: transparent;
+			}
+			
+			/*.merchant_l{
+				border: 1px solid transparent
+			}*/
+</style>
+<body class="slogwhitebg">
+    
+    <header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	   <!-- <h1 class="mui-title">发现</h1>-->
+	  	<div class="mui-indexed-list-search mui-input-row mui-search slogsearchui">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索本店产品">
+				</div>
+	    <span  class="mui-icon iconfont icon-menu slogstoremenu"></span>
+	</header>
+    
+    <div class="slogstorebgdiv">
+    	<div class="merchant_dian">
+								    <div class="merchant_mian slogstorerankcs">
+								         <div class="merchant_top">
+								              <div class="slogmerchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+    </div>
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init({
+    	gestureConfig:{
+				doubletap:false
+			},
+			subpages:[{
+				url:'../barItem/productsub.html',
+//				id:'findsprod/findshoper.html',
+				styles:{
+					top: '176px',
+					bottom: '0px',
+				},
+				createNew:false
+			}]
+			});
+    </script>
+</body>
+</html>

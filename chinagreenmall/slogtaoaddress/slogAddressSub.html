@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ordercontrol.css"/>
+</head>
+<body>
+    
+     <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--这里放置真实显示的DOM内容-->
+            
+			    <ul class="mui-table-view">
+			            <li class="mui-table-view-cell">
+			                <a >
+			                    收货人
+			                </a>
+			            </li>
+			            <li class="mui-table-view-cell">
+			                <a >
+			                     联系电话
+			                </a>
+			            </li>
+			            <li class="mui-table-view-cell" onclick="onSlogSelStreetAddress();">
+			                <a class="mui-navigate-right">
+			                     所在地区<span class="mui-pull-right slog-address-type">请选择</span>
+			                </a>
+			            </li>
+			            <li class="mui-table-view-cell" onclick="onSlogSelStreetAddress();"> 
+			                <a class="mui-navigate-right">
+			                    街道<span class="mui-pull-right slog-address-type" >请选择</span>
+			                </a>
+			            </li>
+			            
+			            <li class="mui-table-view-cell ">
+			                <a class="mui-navigate-right">
+			                     详细地址
+			                </a>
+			            </li>
+			            <li class="slogaddresssegment"></li>
+			            <li class="mui-table-view-cell">
+			                <a >
+			                     设为默认地址<input type="checkbox" class="mui-pull-right "></span>
+			                </a>
+			            </li>
+			            
+			            <li class="slogaddresssegment" style="display: none;"></li>
+			            <li class="mui-table-view-cell" style="display: none;">
+			                <a style="color: red;">
+			                     删除
+			                </a>
+			            </li>
+			        </ul>
+			        
+			        
+			      
+        </div>
+    </div>
+    
+    <div class="mui-bar mui-bar-tab slog-address-save" style="background-color: red;">
+			      	保存
+			      </div>  
+    
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    
+    function onSlogSelStreetAddress(){
+    	mui.openWindow({
+    		url:'indexed-list.html',
+    		id:'indexed-list.html',
+    		createnew:false
+    	})
+    }
+    </script>
+</body>
+</html>
+

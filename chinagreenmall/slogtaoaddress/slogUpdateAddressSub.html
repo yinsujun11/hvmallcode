@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/slegtrans.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ordercontrol.css"/>
+</head>
+
+<style type="text/css">
+	a{
+		color: #000000;
+	}
+	
+	/*.slog-order-tableview>.mui-table-view-cell:after{
+		background-color: #EFEFF4;
+		left: 0px;
+	}*/
+	.mui-table-view{
+		background-color: transparent;
+	}
+	
+	.slogcontractmanname{
+		padding: 0;
+		font-size:1.2em;
+		height: 32px;
+		line-height: 32px;
+	}
+	.slogcontractmanphone{
+		padding: 0;
+		font-size:1.2em;
+		height: 32px;
+		line-height: 32px;
+	}
+	.slogcontractman{
+		height: 32px;
+	}
+</style>
+<body>
+    
+    <ul class="mui-table-view">
+            <li class="mui-table-view-cell slogwhitebg slogaddressitemgap">
+			        <div class="slogwhitebg slogcontractman">
+			    	<span class="mui-pull-left slogcontractmanname">收货人：小王</span>
+			    	<span class="mui-pull-right slogcontractmanphone">15673201669</span>
+			    </div>
+			    
+			    
+			    <div class="slogwhitebg   ">
+			    	<a ><span class="mui-icon mui-icon-location ">湖南省湘潭县易俗河镇玉兰路181号晨光补校 </span></span>
+			    		
+			    		
+			    	</a>
+			    </div>
+	
+			    	
+			    	<!--<span class="slogcontractline"></span>-->
+			    </div>
+            </li>
+            <li class="mui-table-view-cell slogwhitebg slogaddressitemgap">
+                 <div class="slogwhitebg slogcontractman">
+			    	<span class="mui-pull-left slogcontractmanname">收货人：小王</span>
+			    	<span class="mui-pull-right slogcontractmanphone">15673201669</span>
+			    </div>
+			    
+			    
+			    <div class="slogwhitebg   ">
+			    	<a ><span class="mui-icon mui-icon-location ">湖南省湘潭县易俗河镇玉兰路181号晨光补校 </span></span>
+			    		
+			    		
+			    	</a>
+			    </div>
+	
+			    	
+			    	<!--<span class="slogcontractline"></span>-->
+			    </div>
+            </li>
+            <li class="mui-table-view-cell slogwhitebg slogaddressitemgap">
+                 <div class="slogwhitebg slogcontractman">
+			    	<span class="mui-pull-left slogcontractmanname">收货人：小王</span>
+			    	<span class="mui-pull-right slogcontractmanphone">15673201669</span>
+			    </div>
+			    
+			    
+			    <div class="slogwhitebg   ">
+			    	<a ><span class="mui-icon mui-icon-location ">湖南省湘潭县易俗河镇玉兰路181号晨光补校 </span></span>
+			    		
+			    		
+			    	</a>
+			    </div>
+	
+			    	
+			    	<!--<span class="slogcontractline"></span>-->
+			    </div>
+            </li>
+        </ul>
+        
+        <div class="mui-bar mui-bar-tab slog-address-save" style="background-color: red;" onclick="addslognewaddressAction();">
+			      	添加新地址
+			      </div>  
+    
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    function addslognewaddressAction(){
+    	mui.openWindow({
+    			url:'slogtaoaAddressHome.html',
+    			id:'slogtaoaAddressHome.html',
+    			createNew:false
+    		});
+    }
+    </script>
+</body>
+</html>
+

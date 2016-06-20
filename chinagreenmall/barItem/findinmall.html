@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <!--<link rel="stylesheet" href="../css/style.css" />-->
+    
+    <link rel="stylesheet" href="../css/slogcommon.css" />
+    
+    
+    <style>
+			.mui-control-content {
+				background-color: white;
+				/*min-height: 1024px;*/
+				height: auto;
+			}
+			.mui-content>.mui-table-view:first-child{
+				/*margin-top: 46px;*/
+			}
+			.mui-control-content .mui-loading {
+				/*margin-top: 50px;*/
+			}
+			
+			.mui-bar-nav~.mui-content{
+				padding-top: 0px;
+			}
+			
+			.mui-bar-nav~.mui-content{
+				padding-top: 0px;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				border-right: 1px solid #FFF;
+				border-bottom: 1px solid #FFF;
+			}
+			
+			.mui-segmented-control{
+				border: 1px solid #FFFFFF;
+				background-color:#FFFFFF;
+			}
+			
+			.mui-bar-nav~.mui-content{
+				padding-top: 30px;
+			}
+			
+			.mui-my-img img{
+				width: 42px;
+				height: 42px;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img{
+				width: auto;	
+			}
+			
+			.mui-table-view-cell:after{
+				background-color: #FFF;
+			}
+			
+			.merchant_bottom li img{
+				width: 33%;
+				height: 120px;
+			}
+			
+			/*.slogenterierimg{
+				width: 50%;
+				height: 50%;
+			}*/
+			
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">发现</h1>
+	    <a id="rightBar" class="mui-icon mui-icon-chat mui-pull-right"></a>
+	</header>
+	
+	
+	
+	
+	<div class="mui-content white_bg" >
+		
+			
+			<ul class="mui-table-view mui-grid-view mui-grid-9 white_bg">
+			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 white_bg slogfragmenttitle">
+			    <a id="defaultTab" class="mui-my-img" name="shop" href="../findsprod/findshoper.html">
+			        <!--<span class="mui-icon mui-icon-home"></span>-->
+			        <!--href="../findsprod/findshoper.html"-->
+			        <img src="../img/classify/title_img_03.png" />
+			        <div class="mui-media-body slogfragmenttitle">商家榜</div>
+			    </a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 slogfragmenttitle">
+			    <a  class="mui-my-img slogfragmenttitle" name="support" href="../findsprod/findsupportgive.html">
+			      <!--  <span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">5</span></span>-->
+			      <!--href="../findsprod/findsupportgive.html"-->
+			      	<img src="../img/classify/title_img_06.png " />
+			        <div class="mui-media-body">产业供求</div>
+			    </a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 slogfragmenttitle">
+			    <a  class="mui-my-img slogfragmenttitle" name="news" href="../findsprod/findnews.html">
+			    	<!--href="../findsprod/findnews.html"-->
+			        <!--<span class="mui-icon mui-icon-chatbubble"></span>-->
+			        <img src="../img/classify/title_img_09.png" />
+			        <div class="mui-media-body">新闻资讯</div>
+			    </a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 slogfragmenttitle">
+			    <a  class="mui-my-img slogfragmenttitle" name="job" href="../findsprod/findjobs.html">
+			    	<!--href="../findsprod/findjobs.html"-->
+			        <!--<span class="mui-icon mui-icon-location"></span>-->
+			        <img src="../img/classify/title_img_11.png" />
+			        <div class="mui-media-body">人才招聘</div>
+			    </a>
+			</li>
+			
+			    </ul>
+			
+		</div>
+		
+		
+		<script type="text/javascript" charset="UTF-8">
+//  		document.addEventListener("plusready",plusReady,false);
+      		mui.init(
+//    			{
+//    			swipeBack:false, //启用右滑关闭功能
+//    			subpages:[{
+//    				url:'../findsprod/findshoper.html',
+//    				id:'findsprod/findshoper.html',
+//    				styles:{
+//				        top:'150px',
+//				        bottom:'0px'
+//				      }
+//    			}]
+//    		}
+      		);
+      		
+      		var subpages = ['../findsprod/findshoper.html', '../findsprod/findsupportgive.html', '../findsprod/findnews.html', '../findsprod/findjobs.html'];
+			var subpage_style = {
+				top: '150px',
+				bottom: '0px'
+			};
+			
+			var aniShow = {};
+			
+			 //创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				for (var i = 0; i < 4; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if (i > 0) {
+						sub.hide();
+					}else{
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow,temp);
+					}
+					self.append(sub);
+				}
+			});
+      		
+      		mui('.mui-scroll-wrapper').scroll({
+			 scrollY: true,
+			  scrollX: false,
+			   startX: 0,
+			    startY: 0, 
+			     indicators: true,
+			     deceleration:0.0006,
+			      bounce: true
+			});
+			
+			 //当前激活选项
+			var activeTab = subpages[0];
+			mui('.slogfragmenttitle').on('tap','a',function(){
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				//显示目标选项卡
+				//若为iOS平台或非首次显示，则直接显示
+				if(mui.os.ios||aniShow[targetTab]){
+					plus.webview.show(targetTab);
+				}else{
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow,temp);
+					plus.webview.show(targetTab,"fade-in",300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			
+			//自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-my-img");
+				if (defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+    	</script>
+</body>
+</html>

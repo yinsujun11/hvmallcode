@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../css/overlaysearchheader.css"/>
+    <link rel="stylesheet" href="../css/hostoryStyle.css" />
+    
+    <style type="text/css">
+    	
+    	.gridsearchhost{
+    		width: 100%;
+    		height: 100%;
+    		margin-top: 56px;
+    	}
+    	
+    	.mui-grid-view.mui-grid-9{
+    		background-color: #FFFFFF;
+    		border-top: 1px solid #FFFFFF
+    	}
+    	
+    	/*.mui-table-view:before{
+    		background-color: #FFFFFF;
+    	}*/
+    	
+    	.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+    		border-right: 1px solid #FFFFFF
+    	}
+    	
+    	#keywordInput{
+    		text-align: left;
+    	}
+    </style>
+</head>
+<body >
+    
+    	<header class="mui-bar mui-bar-nav mui-title-header">
+	      
+	   			<div id="container">  
+	            <div id="left_side" class="left_side"><a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a></div>  
+	            <div id="content" class="content">
+	            	<div class="search">
+				      <div class="search_w">
+				          <input type="search" value="请输入搜索关键字"  id="keywordInput" class="searchInptTxt"/>
+				      </div>
+				  	</div>
+	            </div>  
+	            <div id="right_side" class="right_side">
+	            	<a class="mui-icon iconfont icon-chaxun "></a>
+	            </div>  
+	        	</div>  
+	            
+	        </header>
+    
+    			<div class="mui-scroll-wrapper ">
+			    		<div class="mui-scroll ">
+				    	<div class="mui-table-view mui-grid-view own-gray-color gridsearchhost ">
+						<!--数据列表-->
+							
+							<div class="mui-content">
+						        <ul class="mui-table-view mui-grid-view mui-grid-9 " id="listhostoryrecord">
+						        </ul> 
+						</div>
+						</div>
+				</div>
+    	</div>
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init({
+    	before:backBeforeAction,
+    	preloadLimit:5
+    });
+    
+//  setHostoryData();//动态加载历史数据
+//  backAction();//返回按钮处理
+
+    var arr = new Array();//为了防止内存溢出，只能保存最新的9个
+	arr[0] = "男装中年";
+  	arr[1] = "新款女装";
+  	arr[2] = "秋季秋裤"
+  	
+  	
+    function setHostoryData(){
+    	var ul = document.getElementById("listhostoryrecord");
+//  	console.log("set--data--" + arrdata);
+    	mui.each(arrdata, function(index, item) {
+//  				console.log("---"+index);
+    				
+					var li = document.createElement('li');
+					li.className = 'mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3';
+					li.innerHTML = '<div class="divlocalhostory">\
+										        <p class ="searchSelName">'+ arrdata[index]+ '</p>\
+										        </div>';
+					ul.appendChild(li);
+				});
+    }
+    
+    
+//  var keyObj = null;//键盘事件对象
+    var indexWebView = null;	
+    var currentWebView = null;
+    var docInpSearchTxt = document.getElementById("keywordInput");
+    var keyStoryage = null;
+    var arrdata = null;
+    
+    docInpSearchTxt.addEventListener("tap",function(){
+    	docInpSearchTxt.value = "";
+    });
+    
+    
+    
+	    mui.plusReady(function(){
+	    	indexWebView = plus.webview.getLaunchWebview();
+	    	keyStoryage = plus.storage;
+//	    	console.log(keyStoryage+ "---------");
+			currentWebView = plus.webview.currentWebview();
+	    	getHostoryArrayDatas();//获取历史信息
+	    	setHostoryData();//动态加载历史数据
+	    	
+	    	mui(".divlocalhostory").on("tap",'.searchSelName',function(){
+//	   			his.value;
+		
+//		   		console.log("---" + this.innerHTML);
+		   		docInpSearchTxt.value = this.innerHTML;
+	   		});
+	   		
+	   		document.getElementById("right_side").addEventListener("tap",function(){
+	   			
+//	   			console.log("data--" + arrdata);
+		   		if(arrdata.length < 9){
+		   			//大于9会内存溢出
+	//	   			arrdata[arrdata.length-1] = docInpSearchTxt.value; //保存值到缓存数组
+					arrdata.push(docInpSearchTxt.value);
+		   		}else{
+		   			var n = arr.length - 8;
+		   			arr.splice(0,n);
+		   			arr.push(docInpSearchTxt.value);
+		   		}
+		   		
+		   		
+		   		//保存缓存
+		   		keyStoryage.setItem("arr",arrdata);
+		   		
+		   		var val = docInpSearchTxt.value;
+//		   		console.log("---product--" + val);
+//		   		if(val== null ||val == "" || val ==" " || val.indexOf(" ") > 0){
+//		   			alert("输入格式有误");
+//		   			return;
+//		   		}
+		   		mui.openWindow({
+		   			url:"../barItem/products.html",
+		   			id:"productsls",
+		   			extras:{
+		   				name:val
+		   			},
+//					waiting{
+//						autoShow:false
+//					},
+		   			createNew:false
+		   		});
+		   		
+//		   		mui.back();
+				currentWebView.close();
+	   		});
+	   		
+	   		  document.getElementById("left_side").addEventListener("tap",backAction);
+		      function backAction(){
+			    if(indexWebView == null) return;
+			    console.log(indexWebView);
+			    mui.fire(indexWebView,"backIndexAction",{'a':'s'});
+	
+		      }
+	   		
+	    });
+	    
+	    
+	    
+//  	updateHostroyKeySearchDataSave(); //更新历史缓存查询数据
+	  
+
+	  
+	  
+	   
+	   
+	   function getHostoryArrayDatas(){
+	   		
+	   		if(keyStoryage != null){
+	   			
+		   		//查询数组是否存在
+		   		 arrdata = keyStoryage.getItem("arr");
+//		   		console.log("--" + arrdata);
+	   		}
+	   		if(arrdata == null || arrdata == undefined || arrdata.length == 0){
+//		   		arrdata.clear();
+		   		arrdata  = arr;
+		   		console.log("====--" + arrdata);
+	   		}
+	   		
+	   }
+	   
+	   
+	   
+	   
+	  function backBeforeAction(){
+	   	 //保存数据，作为历史搜索数据。
+	   	 var sTxt = docInpSearchTxt.value;
+	   	 
+	   	 //清空搜索框的数据。
+	   	 docInpSearchTxt.value = "请输入查询商品名称"
+	   
+	  }
+    </script>
+</body>
+</html>

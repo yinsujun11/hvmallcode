@@ -1,0 +1,121 @@
+.slogsummoney{
+	height: 60px;
+	line-height: 60px;
+	margin-right: 10px;
+}
+.slogcommitorder{
+	overflow: hidden;
+
+	background-color: red;
+	margin: 0px 0px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.4em;
+    padding: 0px 20px;
+    color: #FFF;
+}
+.slogsummoney span{
+	color: #FF5053;
+}
+.slogcontractman{
+	/*height: 58px;*/
+	width: 100%;
+	height: 32px;
+}
+
+.slogcontractmanname{
+	/*height: 48px;
+	line-height: 48px;*/
+	/*font-size: 1.4em;*/
+	font-weight: bold;
+	/*padding: 5px 10px;*/
+	padding: 0;
+		font-size:1.2em;
+		height: 32px;
+		line-height: 32px;
+}
+
+.slogcontractmanphone{
+	/*height: 48px;
+	line-height: 48px;*/
+	/*font-size: 1.4em;*/
+	font-weight: bold;
+	/*padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;*/
+	padding: 0;
+		font-size:1.2em;
+		height: 32px;
+		line-height: 32px;
+}
+
+.slogcontractman a{
+	padding-left: 10px;
+}
+.slogcontractarrowright{
+	
+	margin: 5px 10px;
+}
+.slogcontractline{
+	/*height: auto;*/
+	/*background-color: red;*/
+	height: 8px;
+	margin-bottom: 10px;
+	background:url(../img/cart/address_bg_03.png)  repeat left center;
+}
+.slog-color-type{
+	margin-right: 10px;
+}
+.slog-price-red{
+	color: red;
+	padding: 10px 0px;
+}
+.slog-amout-productcount{
+	padding: 10px 0px;
+}
+.slogpaystyle{
+	clear: both;
+}
+.slogpaystyle span{
+	font-weight: bold;
+	color: #333;
+}
+.slogsellerMessage{
+	padding-top: 20px;
+}
+
+.slogpaystyle span i{
+	color: #999;
+}
+.sloglilinesegment{
+	height: 1px;
+	margin-top: 20px;
+	background:#c8c7cc  repeat left center;
+}
+.slogdivsegmentbotoom{
+	margin-bottom: 20px;
+}
+
+.slog-address-save{
+	background-color: red;
+	height: 46px;
+	line-height: 46px;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 1.6em;
+	font-stretch: expanded;
+}
+.slogaddresssegment{
+	background-color: #999;
+	height: 20px;
+	width: 100%;
+	margin-top: -1px;
+}
+.slog-address-type{
+	color: #999;
+	margin-right: 20px;
+}
+
+.slogaddressitemgap{
+	margin-bottom: 10px;
+}

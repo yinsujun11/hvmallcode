@@ -1,0 +1,19 @@
+/*商品详情—店铺*/
+.store_warp{ width:100%; margin-bottom:20px; background:#fff; padding:20px; box-sizing:border-box;}
+.store_top{ overflow:hidden; width:100%;margin-bottom:30px; }
+.store_l{ float:left; width:25%; overflow:hidden; border:1px solid #dfdfdf; box-sizing:border-box;}
+.store_l img{ width:100%; height:100%;}
+.store_r{ float:right; width:70%; overflow:hidden;}
+.store_r dt{  font-size:1.6em; font-weight:bold; color:#333; overflow:hidden;  margin-bottom:10px; margin-top:10px;}
+.store_r dd{ color:#777; height:30px; line-height:30px; font-size:1.2em;}
+.store_r dd p { color:#777; height:30px; line-height:30px; font-size:1.2em;}
+
+.strong_middle{ overflow:hidden; margin-bottom:30px; }
+.strong_middle li{ float:left; width:33%; box-sizing:border-box; border-right:1px solid #dfdfdf; text-align:center;}
+.strong_middle .no_br{ border-right:none;}
+.strong_middle li p{ line-height:30px; font-size:1.2em; color:#777;}
+.strong_middle li p strong{ line-height:30px; color:#333;}
+
+.store_bottom{ width:100%; overflow:hidden;}
+.store_bottom li{ float:left; width:50%; overflow:hidden;}
+.store_bottom p{ width:50%; height:30%;  border:1px solid #5c9734; text-align:center; line-height:36px; color:#5c9734; margin:0 auto; font-size:1.4em; overflow:hidden;}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/iconfont.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<style type="text/css">
+	
+	#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			#topPopover .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			
+	#pullrefresh{
+		/*margin-top: 72px;*/
+		
+	}
+	.mui-pull{
+		margin-top: 46px;
+	}
+	
+	#popover{
+			height: 100px;
+			width:200px;
+		}
+		
+	#testdiv{
+		margin-top: 0;
+		height: 72px;
+	}
+</style>
+<body>
+    
+            <!--筛选-->
+	<div class="test" id="testdiv">
+	     <div >
+	        <ul class="popultip">
+	            <li class="testpopwindow"><a id="openPopover" >综合<i class="scr_icon1"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >销量<i class="scr_icon2"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >价格<i class="scr_icon1"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >筛选<i class="scr_icon3"></i></a></li>
+	        </ul>
+	    </div>
+	     <div >           
+	           <ul class="popultip">
+	            <li class="testpopwindow"><a id="openPopover" >品牌<i class="scr_icon1"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >适合季节<i class="scr_icon1"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >适种区域<i class="scr_icon1"></i></a></li>
+	            <li class="testpopwindow"><a id="openPopover" >种类<i class="scr_icon1"></i></a></li>
+	        </ul>
+	    </div>
+	     
+	</div>
+    
+    <!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				
+					<div id="recommend" class="mui-table-view mui-grid-view own-gray-color like_list">
+					<!--数据列表-->
+						<ul class="mui-table-view mui-table-view-chevron">
+						</ul>
+					</div>
+				
+			</div>
+		</div>
+		
+		<div id="popover" class="mui-popover">
+			<div class="mui-scroll-wrapper">
+			    <div class="mui-scroll">
+				    <ul class="mui-table-view">
+				    	<li class="mui-table-view-cell"><a href="#">Item1</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">Item2</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">Item3</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">Item4</a></li>
+				    	<li class="mui-table-view-cell"><a href="#">Item5</a></li>
+				    </ul>
+				</div>
+			</div>
+		</div>
+		
+    <script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    		mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			
+			var currentWebview;
+			var homeDiv;
+			var recommendArray = [1,2,3,4,5,6,7,8]; //推荐商品数组
+			mui.plusReady(function() {
+			currentWebview = plus.webview.currentWebview();
+			homeDiv = document.getElementById('homeDiv');
+	
+			
+			//设置推荐商品
+			setRecommend();
+			//添加每个item点击的监听事件
+			mui('#recommend').on('tap', 'a', function() {
+//				var item = this;
+//				var itemID = this.getAttribute('href');
+				var extendOptions = {
+//					itemID: itemID
+				};
+//				pushWebView({
+//					webType: 'newWebview_First',
+//					id: 'Home/product-detail-needtem.html',
+//					href: 'Home/product-detail-needtem.html',
+//					aniShow: getaniShow(),
+//					title: "商品详情",
+//					isBars: false,
+//					barsIcon: '',
+//					extendOptions: extendOptions
+//				});
+			});
+		})
+			var aIsClickedTag = null;
+			mui('#testdiv').on('tap','.testpopwindow a',function(){
+		  		mui('.mui-popover').popover("show",this);
+		  		aIsClickedTag = this; //被选中的a标签
+		  		this.style.cssText = "background:url(../img/mainmall/siocn2_06.png) #C7C7CC no-repeat 5px 12px;";
+			});
+			
+			//设置推荐商品
+			function setRecommend() {
+				var recommend = document.getElementById('recommend');
+				mui.each(null, function(index, item) {
+					var li = document.createElement('li');
+					li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+//					li.innerHTML = '<a href="' + item.product_id + '">\
+//						<div class= "bgDiv">\
+//							<img class="mui-media-object" src="'+item.large_image_url+'"/>\
+//							<div class="mui-media-body">\
+//								<p class="mui-ellipsis-2">' + item.product_name + '</p>\
+//								<p class="price-one">¥' + item.product_price.default_price + '</p>\
+//								<p class="price-two">¥' + item.product_price.list_price + '</p>\
+//							</div>\
+//						</div>\
+//					</a>';
+//					li.innerHTML = '<a class="slogtopddetailpage">';
+					li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
+									</dt><dd>\
+					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
+					                        <p><span>￥99.9</span><font>255人付款</font></p>\
+					                    </dd>\
+					                </dl>';
+//					li.innerHTML ='</a>';
+					recommend.appendChild(li);
+				});
+			}
+			
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+//						li.className = 'mui-table-view-cell';
+						li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+//						li.innerHTML = '<a class="slogtopddetailpage">';
+						li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
+									</dt><dd>\
+					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
+					                        <p><span>￥99.9</span><font>255人付款</font></p>\
+					                    </dd>\
+					                </dl>';
+//					    li.innerHTML ='</a>';
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 20; i < len; i++) {
+						var li = document.createElement('li');
+//						li.className = 'mui-table-view-cell';
+						li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+//						li.innerHTML = '<a class="slogtopddetailpage">';
+						li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
+									</dt><dd>\
+					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
+					                        <p><span>￥99.9</span><font>255人付款</font></p>\
+					                    </dd>\
+					                </dl>';
+//					    li.innerHTML ='</a>';            
+						table.appendChild(li);
+					}
+				}, 1500);
+			}
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+					
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+			
+			mui('.mui-popover div').scroll();
+			
+			mui('#popover').on('tap','.mui-table-view-cell a',function(){
+			  	var val = this.innerHTML;
+			  	console.log(val);
+			  	mui('#popover').popover("toggle");
+			  	if(aIsClickedTag != null){
+			  		aIsClickedTag.style.cssText = "background:url(../img/mainmall/s_iocn_06.png) #FFF no-repeat 2px 10px;";
+			  	}
+		
+			});
+			slogItemClick();
+			//点击个item的事件
+			function slogItemClick(){
+				console.log("---------a.click");
+				mui('.mui-table-view').on('tap','dl',function(){
+					console.log("---------asecond.click");
+				  	mui.openWindow({
+				  		url:'../products/productdetail.html',
+				  		id:'products/productdetail.html',
+				  		
+				  		createNew:false
+				  	});
+				}) 
+			}
+//			window.addEventListener("popoveOnclick",function(data){
+////				var i = 0;
+//				var id = data.id;
+//				mui('#popover').popover('show',document.getElementById(id));	
+//			},false);
+    </script>
+</body>
+</html>
+

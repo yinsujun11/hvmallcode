@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/slogcommon.css" />
+</head>
+
+<style>
+			.mui-control-content {
+				background-color: white;
+				/*min-height: 1024px;*/
+				height: auto;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			
+			.mui-grid-view.mui-grid-9 {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				border-right: 1px solid #FFF;
+				border-bottom: 1px solid #FFF;
+			}
+			
+			.mui-segmented-control{
+				border: 1px solid #FFFFFF;
+				background-color:#FFFFFF;
+			}
+			
+			.mui-bar-nav~.mui-content{
+				padding-top: 30px;
+			}
+			
+			.mui-my-img img{
+				width: 42px;
+				height: 42px;
+			}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img{
+				width: 100%;	
+			}
+			
+			.mui-table-view-cell:after{
+				background-color: #FFF;
+			}
+			
+			.merchant_bottom li img{
+				width: 33%;
+				height: 120px;
+			}
+			
+			/*.slogenterierimg{
+				width: 50%;
+				height: 50%;
+			}*/
+			.mui-btn, button, input[type=button], input[type=reset], input[type=submit]{
+				padding: 0px 12px;
+			}
+    </style>
+<body>
+    
+    <div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item" href="#item1mobile">
+				化肥
+			</a>
+					<a class="mui-control-item" href="#item2mobile">
+				种子
+			</a>
+					<a class="mui-control-item" href="#item3mobile">
+				农药
+			</a>
+			<a class="mui-control-item" href="#item4mobile">
+				农机
+			</a>
+			
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media">
+						        <!--<a href="javascript:;">
+						            <!--<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                幸福
+						                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						            </div>
+						            
+						          
+						        </a>-->
+						        
+						          <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						</ul>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media">
+						        <!--<a href="javascript:;">
+						            <!--<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                幸福
+						                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						            </div>
+						            
+						          
+						        </a>-->
+						        
+						          <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						</ul>
+
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media">
+						        <!--<a href="javascript:;">
+						            <!--<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                幸福
+						                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						            </div>
+						            
+						          
+						        </a>-->
+						        
+						          <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						</ul>
+
+					</div>
+					
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<ul class="mui-table-view">
+						    <li class="mui-table-view-cell mui-media">
+						        <!--<a href="javascript:;">
+						            <!--<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						            <div class="mui-media-body">
+						                幸福
+						                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						            </div>
+						            
+						          
+						        </a>-->
+						        
+						          <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								  </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								   </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						    <li class="mui-table-view-cell mui-media">
+						        <div class="merchant_dian">
+								    <div class="merchant_mian">
+								         <div class="merchant_top">
+								              <div class="merchant_l "><img src="../img/product/merchant—img_03.png" /></div>
+								              <div class="merchant_r">
+								                   <div><dt>中国中化化肥集团有限公司</dt><button type="button" class="mui-btn mui-btn-green mui-btn-outlined slogbtngunzhu">关注</button></dl>
+								              </div>
+								              <div class="slogstoreimgcss">
+								              	<span>店铺等级：</span>
+								              	<i class = "slogstoreimgcssibk"></i>
+								              </div>
+								                <div>主营：有机化肥、复合肥、园艺肥、果树肥......</div>
+								         </div>
+								          <div class="merchant_bottom">
+								             <ul class="mui-table-view mui-table-view-chevron">
+								                     
+								                 </ul>    
+								         </div>
+								    </div>  
+								  </div>
+								   </div>
+								  <ul class="mui-table-view">
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                  <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								          <li class="mui-table-view-cell mui-col-xs-4 mui-pull-left">
+								              <a >
+								                   <img src="../img/mainmall/cpimg_09.png" />
+								              </a>
+								          </li>
+								      </ul>
+						    </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+    
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init()
+//  function storeDetailAction(){
+    	mui('.merchant_dian').on('tap','.merchant_mian',function(){
+    	  	mui.openWindow({
+					url:"../store/storeHome.html",
+					id:'store/storeHome.html',
+//					waiting{
+//						autoShow:false
+//					},
+					createNew:false
+				});
+    	}) 
+//  }
+    </script>
+</body>
+</html>
+

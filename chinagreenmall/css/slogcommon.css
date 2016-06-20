@@ -1,0 +1,99 @@
+li{
+	list-style-type:none;
+}
+
+/*返回顶部*/
+.back_top{ width:80px; height:80px; position: fixed; bottom:60px; right:20px; float:right; z-index:48;
+border: 1px solid red;}
+
+.sloggouwuchebtn{
+	background-color: #ff4c00;
+	
+}
+.slogbuytext{
+	color: #FFF
+}
+
+
+/*发现——优质商家*/
+.merchant_dian{ width:100%; overflow:hidden; /*padding:10px;*/ padding-bottom:0px; box-sizing:border-box; }
+.merchant_mian{ overflow:hidden; background:#fff; padding-top:20px; box-sizing: border-box;}
+.merchant_top{ overflow:hidden; width:100%; /*padding-bottom:20px; border-bottom:1px solid #dfdfdf;*/}
+.merchant_l{ float:left; width:28%; overflow:hidden; border:1px solid #999; box-sizing:border-box;}
+.merchant_l img{ width:100%; border:1px solid #dfdfdf; height:100%;}
+.merchant_r{ float:right; width:70%; overflow:hidden;}
+.merchant_r dl{ display:block; overflow:hidden;}
+.merchant_r dt{ float:left; width:70%; font-size:1em; font-weight:bold; color:#333; overflow:hidden; height:20px; line-height:20px; /*margin-bottom:5px;*/}
+.merchant_r button{ float: right;}
+.merchant_r p { color:#777; height:20px; line-height:20px; font-size:1em;}
+.merchant_r p span{ display:block; float:left; height:20px; line-height:20px;}
+.merchant_r p img{ height:20px;}
+.merchant_bottom{ width:100%; overflow:hidden; padding-top:20px;}
+.merchant_bottom ul{ display:block; width:100%;}
+.merchant_bottom li{ float:left; width:33%; padding-right:20px; box-sizing:border-box;}
+.merchant_bottom li img{ width:100%; height:100%;}
+
+.slogmerchant_l{
+	float:left; width:28%; overflow:hidden; box-sizing:border-box;
+}
+.slogstoreimgcss img{
+	height: 20px;
+	width: auto;
+}
+.slogstoreimgcss{
+	clear: both;
+}
+.slogstoreimgcss span{
+	display: block;
+	float:left;
+	height: 24px;
+	line-height: 24px;
+	
+}
+
+.slogbtngunzhu{
+	height: 24px;
+	
+}
+.slogstoreimgcss i{
+	/*background-image: "../img/product/merchant—img_06.png",;*/ 
+	background:url(../img/product/merchant—img_06.png) transparent no-repeat 0px 0px;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-size:85%;
+}
+.slogfindmallimg img{
+	height: 45px;
+	
+}
+
+/*发现—人才*/
+.join_warp{ width:100%; overflow: hidden; padding-top:10px; background:#fff; box-sizing:border-box; font-size:1.1em; color:#777; margin-bottom:10px;}
+.join_warp strong{ display:block; font-size:1.2em;}
+.join_warp span{ overflow:hidden; /*padding:5px 0;*/}
+.join_warp span span{ font-size:1.2em; color:#ff3c3c; }
+.join_warp dl{ height:32px; line-height:32px; overflow:hidden;}
+.join_warp dt{ float:left; width:75%; overflow:hidden;}
+.join_warp span{ padding-right:5px;}
+.join_warp  .add_bg{ padding-left:20px; /*background:url(images/add_bg_03.png)*/ no-repeat left; background-size:15%;}
+.join_warp dd{ float:right;}
+.slogstorerankcs{
+	/*margin-top: 45px;*/
+	/*text-align: ;*/
+	margin-top: 35px;
+	padding: 5px 10px;
+	/*padding-left: 10px;
+	padding-right: 10px;*/
+	height: 80px;
+}
+.slogstorebgdiv{
+	background-color: red;
+	height: 125px;
+	width: 100%;
+	margin-top: 45px;
+}
+
+.merchant_l{
+				border: 1px solid transparent
+			}

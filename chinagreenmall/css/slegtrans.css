@@ -1,0 +1,109 @@
+.slogtransport{
+	background-color: transparent;
+}
+
+.slogtransport a{
+	color: #000000
+}
+
+.slogtextproductdesprection{
+	font-size: 1.2em;
+	/*font-weight: bold;*/
+	color: #000000;
+	margin-left: 10px;
+}
+
+.slogmuislider{
+	margin-bottom: 12px;
+	overflow: hidden;
+	
+}
+
+.slogredprice{
+	font-size:1.4em; 
+	color:#ff3c3c;
+ 	font-weight:bold; 
+ 	margin-top: 10px;
+ 	margin-left: 10px;
+ 
+}
+
+.slogmonthcount{
+	font-size:24px; 
+	color:#777;
+	margin: 20px 10px 20px 10px;
+}
+
+.slogcolorsel{
+	font-size:24px; 
+	color:#444;
+	line-height: 65px;
+	height: 65px;
+}
+
+.slogcolordiv{
+	height: 65px;
+	
+	/*border: 1px solid red;*/
+	margin: 20px 0px 20px 0px;
+}
+.slogcountdiv{
+	overflow: hidden;
+}
+
+.slogwhitebg{
+	background-color: white;
+}
+
+.slogpricediv{
+	overflow: hidden;
+}
+
+.slogdsdiv{
+	overflow: hidden;
+}
+
+.slogevaluatediv{
+	overflow: hidden;
+	/*border: 1px solid red;*/
+	
+}
+
+.sloglinediv{
+	height: 1px;
+	width: 100%;
+	background-color: #CCC;
+	margin-top: -2px;
+}
+
+.slogevalusername{
+	font-size:24px; 
+	color:#2c9734;
+	margin: 0px 10px 0px 0px;
+}
+
+.slogstarevaldiv{
+	overflow: hidden;
+}
+
+.slogcenterevalbtn{
+	text-align: center;
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+	margin-top: 10px;
+	/*height: 65px;*/
+}
+
+.slogpdevalOneSel{
+	overflow: hidden;
+	background-color: #FFF; 
+	padding: 5px 10px;
+	margin-bottom: 20px;
+}
+
+.slogbtnlist{
+	/*margin: 5px 10px;*/
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}

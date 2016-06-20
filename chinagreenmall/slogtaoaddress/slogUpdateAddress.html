@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+</head>
+<style type="text/css">
+    	a{
+    		color: #000000;
+    	}
+    	.mui-bar .mui-btn-nav.mui-pull-left{
+    		margin-left: 10px;
+    	}
+    	.mui-bar .mui-btn-link{
+    		color: #000000;
+    		
+    	}
+    	.mui-btn-link{
+    		color: #000000;
+    	}
+    	
+    
+    	
+  </style>
+<body>
+    
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <span class="mui-action-back mui-btn-link mui-btn-nav mui-pull-left">添加收货地址</span>
+        <h1 class="mui-title"></h1>
+        <span class="mui-icon iconfont icon-menu mui-pull-right"></span>
+    </header>
+    
+    <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init({
+    	gestureConfig:{
+				doubletap:false
+			},
+			subpages:[{
+				url:'slogUpdateAddressSub.html',
+				id:'slogUpdateAddressSub.html',
+				styles:{
+					top: '46px',
+					bottom: '0px',
+				}
+			}]
+    })
+    </script>
+</body>
+</html>
+
