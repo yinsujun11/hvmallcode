@@ -415,6 +415,7 @@
 					    </div>
 					  	</div>
 					<button type="button" id="confirm" class="mui-btn mui-btn-primary">按钮</button>
+				
 	     </div>
 				</div>
 </div>
@@ -479,5 +480,12 @@
 //				curWebView.clo;
 			}
 		});
+		
+		function submitData(){
+			mui.getJSON('http://server-name/list.php',{category:'news'},function(e){
+				//e为获取服务器的数据
+				console.log(e);
+			});
+		}
 	</script>
 </html>
