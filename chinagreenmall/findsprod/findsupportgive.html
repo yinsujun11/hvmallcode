@@ -34,7 +34,7 @@
 					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
 						<ul class="mui-table-view">
 						    <li class="mui-table-view-cell mui-media">
-						       <a href="javascript:;">
+						       <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -45,12 +45,12 @@
 										</a>
 									</div>
 
-						        </a>
+						        <!--</a>-->
 						        
 						         
 						    </li>
 						    <li class="mui-table-view-cell mui-media">
-						        <a href="javascript:;">
+						        <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -60,10 +60,10 @@
 											<span class="mui-pull-right">2015-6-15</span>
 										</a>
 									</div>
-						        </a>
+						        <!--</a>-->
 						    </li>
 						    <li class="mui-table-view-cell mui-media">
-						        <a href="javascript:;">
+						        <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -73,14 +73,14 @@
 											<span class="mui-pull-right">2015-6-15</span>
 										</a>
 									</div>
-						        </a>
+						        <!--</a>-->
 						    </li>
 						</ul>
 					</div>
 					<div id="item2mobile" class="mui-slider-item mui-control-content">
 						<ul class="mui-table-view">
 						    <li class="mui-table-view-cell mui-media">
-						       <a href="javascript:;">
+						       <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -91,12 +91,12 @@
 										</a>
 									</div>
 
-						        </a>
+						        <!--</a>-->
 						        
 						         
 						    </li>
 						    <li class="mui-table-view-cell mui-media">
-						        <a href="javascript:;">
+						        <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -106,10 +106,10 @@
 											<span class="mui-pull-right">2015-6-15</span>
 										</a>
 									</div>
-						        </a>
+						        <!--</a>-->
 						    </li>
 						    <li class="mui-table-view-cell mui-media">
-						        <a href="javascript:;">
+						        <!--<a >-->
 						            <div class="join_warp">
 										<strong>中化化肥集团有限公司</strong>
 										<div>			    
@@ -119,7 +119,7 @@
 											<span class="mui-pull-right">2015-6-15</span>
 										</a>
 									</div>
-						        </a>
+						        <!--</a>-->
 						    </li>
 						</ul>
 
@@ -131,6 +131,16 @@
     <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     mui.init()
+    mui('.mui-table-view-cell').on('tap','div',function(){
+      mui.openWindow({
+						url:"supportdetial.html",
+						id:'supportdetial.html',
+//						waiting{
+//							autoShow:false
+//						},
+						createNew:false
+					});
+    }) 
     </script>
 </body>
 </html>

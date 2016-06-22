@@ -73,7 +73,7 @@
 						bounceBackground: '#f8f8f8'
 					},
 					waiting:{
-						autoShow:true
+						autoShow:false
 					}
 				});
 				barItemWebviewArray[i].hide();
@@ -134,6 +134,10 @@
 					styles:{
 						top:'0px',
 						bottom:'0px'
+					},
+					waiting:{
+						autoShow:true,
+						title:'正在加载...'
 					}
 				}),200});
 			}

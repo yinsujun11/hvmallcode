@@ -96,7 +96,7 @@
 								
 									<div class="slogcenterevalbtn">
 										<!--<span>adddd</span>-->
-										<button type="button" class="mui-btn mui-btn-purple mui-btn-outlined ">查看全部评价</button>
+										<button type="button" class="mui-btn mui-btn-purple mui-btn-outlined " onclick="evalPro();">查看全部评价</button>
 									</div>
 								</div>
 							<!--<button type="button" class="mui-btn mui-btn-purple mui-btn-outlined ">查看全部评价</button>-->
@@ -233,6 +233,17 @@
 			     deceleration:0.0006,
 			      bounce: true
 		});
+		
+		function evalPro(){
+			mui.openWindow({
+						url:"productevaldetailHome.html",
+						id:'productevaldetailHome.html',
+//						waiting{
+//							autoShow:false
+//						},
+						createNew:false
+					});
+		}
     </script>
 </body>
 </html>

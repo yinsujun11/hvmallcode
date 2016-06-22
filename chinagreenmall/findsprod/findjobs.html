@@ -69,6 +69,17 @@
     <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     mui.init()
+    
+    mui('.mui-table-view-cell').on('tap','a',function(){
+      mui.openWindow({
+						url:"jobsdetail.html",
+						id:'jobsdetail.html',
+//						waiting{
+//							autoShow:false
+//						},
+						createNew:false
+					});
+    }) 
     </script>
 </body>
 </html>

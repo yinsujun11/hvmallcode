@@ -17,3 +17,58 @@
 .store_bottom{ width:100%; overflow:hidden;}
 .store_bottom li{ float:left; width:50%; overflow:hidden;}
 .store_bottom p{ width:50%; height:30%;  border:1px solid #5c9734; text-align:center; line-height:36px; color:#5c9734; margin:0 auto; font-size:1.4em; overflow:hidden;}
+
+/***********************************人才详情*******************************************/
+
+/*招聘头部*/
+.job_xiang_header{ background:#fff; padding:10px; margin-bottom:10px; margin-top: 45px; box-sizing:border-box;}
+.job_title{ overflow:hidden; padding-bottom:10px; border-bottom:1px solid #dfdfdf;}
+.job_title p{ font-size:18px; margin-bottom:10px; font-weight:bold;}
+.job_title dl{ overflow:hidden;height:24px; line-height:24px; color:#999;}
+.job_title dt{ float:left; width:50%;}
+.job_title dt .job_yellow{ color:#ff4c00; font-size:18px; font-weight:bold; padding-right:5px;}
+.job_title dd{ float:right; width:50%; text-align:right;}
+.job_jb{ padding-top:10px; overflow:hidden;}
+.job_jb p{ font-size:14px; color:#444; line-height:26px;}
+
+/*薪资福利*/
+.job_warp{ background:#fff; overflow:hidden; margin-bottom:10px;}
+.basic_title{ width:100%; height:45px; line-height:45px; font-size:16px; font-weight:bold; color:#333; overflow:hidden; box-sizing:border-box; border-bottom:1px solid #dfdfdf;}
+.basic_title i{ display:inline-block; width:5px; height:16px; background:#2c9734; margin-right:10px;}
+.job_pay_mian{ padding:10px; overflow:hidden;}
+.job_pay_mian a{  border:1px solid #2c9734; color:#2c9734; line-height:30px;  padding:0px 10px; border-radius:5px; margin-right:10px; white-space:nowrap; margin-bottom:10px;}
+
+/*岗位要求*/
+.post_warp{ background:#fff; overflow:hidden; }
+.post_mian{ padding:10px; overflow:hidden;}
+.post_mian p{text-indent:2em; line-height:26px; font-size:14px; color:#444}
+
+
+/***********************************供求详情*******************************************/
+
+/*供求头部*/
+.supply_xiang_header{ background:#fff; padding:10px; margin-bottom:10px; margin-top: 45px; box-sizing:border-box;}
+.supply_title{ overflow:hidden; padding-bottom:10px; border-bottom:1px solid #dfdfdf;}
+.supply_title p{ font-size:18px; margin-bottom:10px; font-weight:bold;}
+.supply_title span{ font-size:14px; color:#999;}
+.supply_jb{ padding-top:10px; overflow:hidden;}
+.supply_jb p{ font-size:14px; color:#444; line-height:26px;}
+.supply_jb p .supply_yellow{ color:#ff4c00;}
+.supply_jb p .supply_green{ color:#2c9734;}
+
+/*基本信息*/
+.basic_warp{ background:#fff; overflow:hidden; margin-bottom:10px;}
+.basic_title{ width:100%; height:45px; line-height:45px; font-size:16px; font-weight:bold; color:#333; overflow:hidden; box-sizing:border-box; border-bottom:1px solid #dfdfdf;}
+.basic_title i{ display:inline-block; width:5px; height:16px; background:#2c9734; margin-right:10px;}
+.basic_mian{ padding:10px; overflow:hidden;}
+.basic_mian p{ line-height:26px; color:#444;}
+
+/*响应信息*/
+.response_warp{ background:#fff; overflow:hidden; }
+.response_mian{ overflow:hidden; padding:10px;}
+.response_mian li{ padding:10px 0px; border-bottom:1px solid #dfdfdf;}
+.response_mian li dl{ height:30px; line-height:30px; overflow:hidden;}
+.response_mian li dt{  float:left; width:70%;font-size:16px;}
+.response_mian li dd{ float:right; width:30%; color:#2c9734; text-align:right;}
+.response_mian li p{ line-height:30px; line-height:30px; color:#999;}
+.response_mian li p span{ color:#777; margin-right:10px;}

@@ -68,6 +68,8 @@
 
 		<script type="text/javascript" src="../js/mui.min.js"></script>
 		<script type="text/javascript" src="../js/own.js"></script>
+		<script type="text/javascript" src="../js/common.js" ></script>
+		<script type="text/javascript" src="../js/objectcustom.js" ></script>
 		<script type="text/javascript">
 			mui.init({
 				swipeBack: false
@@ -79,16 +81,16 @@
 			var categoryStairHtml; //categoryStair的div
 			var categoryMoversHtml; //categoryMovers的div
 			var parentWebView; //父类
-			
-			var arrFristCategoryData = new Array();
-			arrFristCategoryData[0] = "推荐分类";
-			arrFristCategoryData[1] = "化肥产品";
-			arrFristCategoryData[2] = "种子";
-			arrFristCategoryData[3] = "农药";
-			arrFristCategoryData[4] = "农机农具";
-			arrFristCategoryData[5] = "粮食商城";
-			arrFristCategoryData[6] = "种植套餐";
-			arrFristCategoryData[7] = "农技服务";
+			var categorysubarraySub = [];//子类的分类
+			var arrFristCategoryData = [];
+//			arrFristCategoryData[0] = "推荐分类";
+//			arrFristCategoryData[1] = "化肥产品";
+//			arrFristCategoryData[2] = "种子";
+//			arrFristCategoryData[3] = "农药";
+//			arrFristCategoryData[4] = "农机农具";
+//			arrFristCategoryData[5] = "粮食商城";
+//			arrFristCategoryData[6] = "种植套餐";
+//			arrFristCategoryData[7] = "农技服务";
 			
 			
 			mui.plusReady(function() {
@@ -99,23 +101,33 @@
 					parentWebView = plus.webview.currentWebview().parent();
 //					
 				})
+			
+			//request netdata
+			var reqUrl = "http://192.168.1.111:888/Leather/Home/AjaxService/SelIndustryProductTypeData.ashx";
+			var dataParams = {
+				IndustryID:2,
+				CompanyID:-100
+			}
+			
+			submitData(reqUrl,dataParams,initFristCategoryDataByNet);
 					
 					categoryStairHtml = document.getElementById('categoryStair');
 					categoryMoversHtml = document.getElementById('categoryMovers');
 			
 //					//添加点击第一级和第二级的监听事件
 					addCategoryEvent();
-					//初始化第一级数据并且设置html
-					initFirstCategoryData();
-					//初始化第二级数据并且设置html
-					initSecondCategoryData(0);
+					
+//					//初始化第二级数据并且设置html
+//					initSecondCategoryData(0);
 				//添加点击第一级和第二级的监听事件
 			function addCategoryEvent() {
 				//为第一级分类监听点击事件
 				mui('#categoryStair').on('tap', '.mui-control-item', function() {
 					var item = this;
 					console.log("frist-----");
-					createSubCategoryHtml();
+					var hrefId = this.getAttribute("href").substr(1);
+//					createSubCategoryHtml();
+					initSecondCategoryData(hrefId)
 //					get_sub_categoryByParentID(item.getAttribute('href').substring(9));
 				});
 				//监听第二级分类的点击事件
@@ -149,36 +161,70 @@
 					})
 				});
 			}
+			
+			function initFristCategoryDataByNet(netData){
+//				console.log(netData.length);
+//				console.log(JSON.stringify(netData));
+				var dataCount = netData.length;
+//				console.log(dataCount.prototype);
+				for (var i = 0; i< dataCount; i++) {
+					var categoryclsMe = {};
+					categoryclsMe.id = netData[i].ProductTypeID;
+					categoryclsMe.ProductTypeName = netData[i].ProductTypeName;
+					categoryclsMe.ProData = netData[i].ProData;
+					categoryclsMe.ShopsData = netData[i].ShopsData;
+					arrFristCategoryData[i] = categoryclsMe;
+				}
+				//初始化第一级数据并且设置html
+				initFirstCategoryData();
+				
+				//初始化第二级数据并且设置html
+				initSecondCategoryData(0);
+			}
+			
 			//初始化第一级数据并且设置html
 			function initFirstCategoryData() {
+				
 				for (var i = 0; i < arrFristCategoryData.length; i++) {
 					var item = {};
-					item.id = i;
-					item.name = arrFristCategoryData[i];
+					item.id = arrFristCategoryData[i].id;
+					item.name = arrFristCategoryData[i].ProductTypeName;
 					item.imageurl = '';
 					categoryStair[i] = item;
 				
-					var html = '<a class="mui-control-item" href="#category' + categoryStair[i].id + '"><span><img src="' + categoryStair[i].imageurl + '"/>&nbsp&nbsp</span>' + categoryStair[i].name + '</a>';
+					var html = '<a class="mui-control-item" href="#' + i + '"><span><img src="' + categoryStair[i].imageurl + '"/>&nbsp&nbsp</span>' + categoryStair[i].name + '</a>';
 					categoryHtml.push(html);
 				}
 				//设置categorystairhtml的innerhtml
 				categoryStairHtml.innerHTML = categoryHtml.join('');
+//				console.log(categoryHtml);
 				//设置初始化第一个的mui-active
 				document.querySelector('.mui-control-item').classList.add('mui-active');
 				//重置categoryHtml数组
 				categoryHtml = [];
 			}
 			//初始化第二级数据并且设置html
-			function initSecondCategoryData(parentId) {
-				var categorysub = {};
-				categorysub.parentID = parentId;
-//				categorysubarray = [];
-//				for (var i = 0; i < 10; i++) {
-//					var subitem = {};
-//					subitem.categoryID = i;
-//					subitem.productName = parentId +'子分类' + i;
-//					categorysubarray[i] = subitem;
-//				}
+			function initSecondCategoryData(idx) {
+				var docSecondType = document.getElementById("secondcategoryType");
+				if(docSecondType != null && docSecondType != undefined){
+					docSecondType.vale = "";
+				}
+				console.log(idx);
+				//子类数据
+//				var categorysubarrayNew = [;
+//				console.log(JSON.parse(arrFristCategoryData[idx].ProData));
+//				categorysubarraySub = [];
+				var parentName = arrFristCategoryData[idx].ProductTypeName;
+				console.log(parentName);
+				for (var i = 0; i < arrFristCategoryData[idx].ProData.length; i++) {
+					var subitem = {};
+					
+					subitem.categoryID = arrFristCategoryData[idx].ProData[i].TypeID;
+					var tmpName = arrFristCategoryData[idx].ProData[i].TypeName;
+				subitem.productName = tmpName;
+					subitem.parentID = arrFristCategoryData[idx].ProData[i].ParentID;
+					categorysubarraySub[i] = subitem;
+				}
 //				categorysub.categorysubarray = categorysubarray;
 				//如果已经存在这个id的信息就不在加入
 //				var item = get_categoryMoversStateByID(parentId);
@@ -186,29 +232,43 @@
 //					return;
 //				}
 //				categoryMovers.push(categorysub);
-				createSubCategoryHtml();
+				
+				createSubCategoryHtml(parentName);
 //				setCurSubCategory();
 			}
 			//创建二级分类的html
-			function createSubCategoryHtml() {
+			function createSubCategoryHtml(parentName) {
 //				var html = '<div id="category' + categorysub.parentID + '" class="mui-control-content"><ul class="mui-table-view">';
 				categoryMoversHtml.innerHTML = "";
-			    var html = '<div class="mui-scroll-wrapper">\
-			    				<div class="mui-scroll">\
-			    			<div class="categorysendcs" id="categorysendcs">\
-							<div class="titledv"><span class="cropscategory">大田作物</span></div>\
-								<div >\
-								   <ul class="popultip">\
-								            <li class="testpopwindow"><a >玉米<i class="scr_icon1"></i></a></li>\
-								            <li class="testpopwindow"><a >大豆<i class="scr_icon1"></i></a></li>\
-								            <li class="testpopwindow"><a >水稻<i class="scr_icon1"></i></a></li>\
-								            <li class="testpopwindow"><a >大麦<i class="scr_icon1"></i></a></li>\
-								            <li class="testpopwindow"><a >油菜<i class="scr_icon1"></i></a></li>\
-								        </ul>\
-								    </div>\
-								</div>\
-			   					</div></div>'	
-				categoryHtml.push(html);
+//			    var html = '<div class="mui-scroll-wrapper">\
+//			    				<div class="mui-scroll">\
+//			    			<div class="categorysendcs" id="categorysendcs">\
+//							<div class="titledv"><span class="cropscategory">大田作物</span></div>\
+//								<div >\
+//								   <ul class="popultip">\
+//								            <li class="testpopwindow"><a >玉米<i class="scr_icon1"></i></a></li>\
+//								            <li class="testpopwindow"><a >大豆<i class="scr_icon1"></i></a></li>\
+//								            <li class="testpopwindow"><a >水稻<i class="scr_icon1"></i></a></li>\
+//								            <li class="testpopwindow"><a >大麦<i class="scr_icon1"></i></a></li>\
+//								            <li class="testpopwindow"><a >油菜<i class="scr_icon1"></i></a></li>\
+//								        </ul>\
+//								    </div>\
+//								</div>\
+//			   					</div></div>'	
+				var htmlCatg = '<div class="mui-scroll-wrapper">';
+			    htmlCatg +=	'<div class="mui-scroll">';
+			    htmlCatg +=	'<div class="categorysendcs" id="categorysendcs">';
+				htmlCatg += '<div ><ul class="popultip">';
+				htmlCatg += '<div class="titledv"><span class="cropscategory " id = "secondcategoryType">' + parentName + '</span></div>'
+				for (var i = 0; i< categorysubarraySub.length; i++) {
+//					<li class="testpopwindow"><a >大麦<i class="scr_icon1"></i></a></li>
+//					console.log(categorysubarraySub[i].productName)
+					var linew = '<li class="testpopwindow"><a>' + categorysubarraySub[i].productName + '<i class="scr_icon1"></i></a></li>';
+					htmlCatg += linew;
+				}
+				htmlCatg += '</ul></div>';
+				htmlCatg += '</div></div></div>';
+				categoryHtml.push(htmlCatg);
 				categoryMoversHtml.innerHTML = categoryHtml.join('');
 			}
 			
