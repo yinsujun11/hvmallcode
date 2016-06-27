@@ -94,12 +94,29 @@
 					for (var i = 0; i < barItemArray.length; i++) {
 //						console.log("------" + i + "--" + barItemArray[i] + "\r\n");
 						if (barItemArray[i] == baritemurl) {
-							//更改头部名字
-//							navTitle.innerText = baritem.children[i].innerText;
+							//当点击发现，购物车，我的的时候，首先要判断是否登录成功过
+							if(barItemArray[i] == 'barItem/findinmall.html' || barItemArray[i] == 'cart/cartHome.html' || barItemArray[i] == 'barItem/mine.html'){
+								
+//								localStorage.setItem('flag',-1);
+								//登录成功过
+								if(localStorage.getItem('flag') != 1 ){
+									 mui.openWindow({
+										url:"mine/login.html",
+										id:'mine/login.html',
+					//					waiting{
+					//						autoShow:false
+					//					},
+										createNew:false
+									});
+								}else{
+									barItemWebviewArray[i].show();
+									curBarItemWebview = barItemWebviewArray[i];
+								}
+							}else{
+								barItemWebviewArray[i].show();
+								curBarItemWebview = barItemWebviewArray[i];
+							}
 							
-							//切换baritemwebview
-							barItemWebviewArray[i].show();
-							curBarItemWebview = barItemWebviewArray[i];
 							break;
 						}
 					}

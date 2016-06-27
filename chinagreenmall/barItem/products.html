@@ -41,22 +41,10 @@
 	        
     <script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-    	//关闭双击监听
-		mui.init({
-			gestureConfig:{
-				doubletap:false
-			},
-			subpages:[{
-				url:'productsub.html',
-				id:'productsub.html',
-				styles:{
-					top: '46px',
-					bottom: '0px',
-				}
-			}]
-		});
-	
+    	
 		
+		var parentId = null;
+		var categroyid = null;
 	
 		mui.plusReady(function(){
 			console.log("ready-----------");
@@ -68,8 +56,32 @@
 				contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
 				
 			});
+			var self = plus.webview.currentWebview();
+			parentId = self.parentId;
+			categroyid = self.categoryId;
 			
+			console.log(parentId + "," + categroyid);
 //			binkclick();
+
+			//关闭双击监听
+			mui.init({
+				gestureConfig:{
+					doubletap:false
+				},
+				subpages:[{
+					url:'productsub.html',
+					id:'productsub.html',
+					styles:{
+						top: '46px',
+						bottom: '0px',
+					},
+					extras:{
+						//自定义扩展参数，可以用来处理页面间传值
+      					parentId:parentId, //传父类id
+      					categoryId:categroyid //传子类id
+					}
+				}]
+			});
 		});
 		
 		

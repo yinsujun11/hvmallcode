@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
     <link rel="stylesheet" href="../css/iconfont.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
 </head>
 
 <style type="text/css">
@@ -91,29 +92,70 @@
 		
     <script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-    		mui.init({
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
+    
+    		
+    		
+    		
+			
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+					
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+			
+			var parentId = null;
+			var categroyid = null;
+			var dataproducts = [];
+			var page = 1;//表示页面
+			mui.plusReady(function(){
+				var self = plus.webview.currentWebview();
+				parentId = self.parentId;
+				categroyid = self.categoryId;
+				var currentWebview = plus.webview.currentWebview();
+				var homeDiv = document.getElementById('homeDiv');
+				
+				//request netdata
+				var reqUrl = "http://192.168.1.111:888/Leather/Home/AjaxService/SelIndustryCompanyProductByTypeData.ashx";
+					var dataParams = {
+						IndustryID:2,
+						CompanyID:-100,
+						ProductTypeID:parentId,
+						TypeID:categroyid
+					}
+					console.log(parentId + "," +　categroyid)
+				  	//从服务器获取数据
+			  	submitData(reqUrl,dataParams,getProductList);
+				function getProductList(data){
+				  	console.log("---",data.length);
+				  	
+				  	dataproducts = data;
+				  	mui.init({
+					pullRefresh: {
+						container: '#pullrefresh',
+						down: {
+							callback: pulldownRefresh
+						},
+						up: {
+							contentrefresh: '正在加载...',
+							callback: pullupRefresh
+						}
+						}
+					});
+					
+					if(dataproducts.length > 0){
+						//设置推荐商品
+						setRecommend(dataproducts);
 					}
 				}
 			});
 			
-			var currentWebview;
-			var homeDiv;
-			var recommendArray = [1,2,3,4,5,6,7,8]; //推荐商品数组
-			mui.plusReady(function() {
-			currentWebview = plus.webview.currentWebview();
-			homeDiv = document.getElementById('homeDiv');
-	
-			
-			//设置推荐商品
-			setRecommend();
 			//添加每个item点击的监听事件
 			mui('#recommend').on('tap', 'a', function() {
 //				var item = this;
@@ -132,7 +174,7 @@
 //					extendOptions: extendOptions
 //				});
 			});
-		})
+			
 			var aIsClickedTag = null;
 			mui('#testdiv').on('tap','.testpopwindow a',function(){
 		  		mui('.mui-popover').popover("show",this);
@@ -141,9 +183,9 @@
 			});
 			
 			//设置推荐商品
-			function setRecommend() {
+			function setRecommend(data) {
 				var recommend = document.getElementById('recommend');
-				mui.each(null, function(index, item) {
+				mui.each(data, function(index, item) {
 					var li = document.createElement('li');
 					li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
 //					li.innerHTML = '<a href="' + item.product_id + '">\
@@ -157,10 +199,11 @@
 //						</div>\
 //					</a>';
 //					li.innerHTML = '<a class="slogtopddetailpage">';
-					li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
+					
+					li.innerHTML = '<dl><dt><img src="'+ commUrl + ":" + commPort + item.ImgFileURL + '" />\
 									</dt><dd>\
-					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
-					                        <p><span>￥99.9</span><font>255人付款</font></p>\
+					                        <p>'+item.ProductName +'</p>\
+					                        <p><span>￥'+ parseInt(item.SchedulePrice)+'</span><font>' + parseInt(item.SoldAmount) +'人付款</font></p>\
 					                    </dd>\
 					                </dl>';
 //					li.innerHTML ='</a>';
@@ -172,65 +215,62 @@
 			 * 下拉刷新具体业务实现
 			 */
 			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-//						li.className = 'mui-table-view-cell';
-						li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
-//						li.innerHTML = '<a class="slogtopddetailpage">';
-						li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
-									</dt><dd>\
-					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
-					                        <p><span>￥99.9</span><font>255人付款</font></p>\
-					                    </dd>\
-					                </dl>';
-//					    li.innerHTML ='</a>';
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1500);
+				 mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+				if(dataproducts.length > 10){
+					setTimeout(function() {
+						var table = document.body.querySelector('.mui-table-view');
+						var cells = document.body.querySelectorAll('.mui-table-view-cell');
+						var lenArr = dataproducts.length>=10*(page+1) ? 10*(page+1):dataproducts.length;
+						for (var i = cells.length, len = i + lenArr; i < len; i++) {
+							var li = document.createElement('li');
+	//						li.className = 'mui-table-view-cell';
+							li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+	//						li.innerHTML = '<a class="slogtopddetailpage">';
+							li.innerHTML = '<dl><dt><img src="'+ commUrl + ":" + commPort + dataproducts[i].ImgFileURL + '" />\
+										</dt><dd>\
+						                        <p>'+dataproducts[i].ProductName +'</p>\
+						                        <p><span>￥'+ parseInt(dataproducts[i].SchedulePrice)+'</span><font>' + parseInt(dataproducts[i].SoldAmount) +'人付款</font></p>\
+						                    </dd>\
+						                </dl>';
+	//					    li.innerHTML ='</a>';
+							//下拉刷新，新纪录插到最前面；
+							table.insertBefore(li, table.firstChild);
+						}
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+					}, 1500);
+				}
 			}
 			var count = 0;
 			/**
 			 * 上拉加载具体业务实现
 			 */
 			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 20; i < len; i++) {
-						var li = document.createElement('li');
-//						li.className = 'mui-table-view-cell';
-						li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
-//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-//						li.innerHTML = '<a class="slogtopddetailpage">';
-						li.innerHTML = '<dl><dt><img src="../img/mainmall/cpimg_09.png" />\
-									</dt><dd>\
-					                        <p>英伦风女鞋2016学院风套脚流苏高跟鞋</p>\
-					                        <p><span>￥99.9</span><font>255人付款</font></p>\
-					                    </dd>\
-					                </dl>';
-//					    li.innerHTML ='</a>';            
-						table.appendChild(li);
-					}
-				}, 1500);
-			}
-			if (mui.os.plus) {
-				mui.plusReady(function() {
+				  this.endPullupToRefresh(true);
+				if(dataproducts.length > 10){
 					setTimeout(function() {
-						mui('#pullrefresh').pullRefresh().pullupLoading();
-					}, 1000);
-					
-				});
-			} else {
-				mui.ready(function() {
-					mui('#pullrefresh').pullRefresh().pullupLoading();
-				});
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+						var table = document.body.querySelector('.mui-table-view');
+						var cells = document.body.querySelectorAll('.mui-table-view-cell');
+						var lenArr = dataproducts.length>=10*(page+1) ? 10*(page+1):dataproducts.length;
+						for (var i = cells.length, len = i + lenArr; i < len; i++) {
+							var li = document.createElement('li');
+	//						li.className = 'mui-table-view-cell';
+							li.className = 'mui-table-view-cell mui-media mui-col-xs-6';
+	//						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+	//						li.innerHTML = '<a class="slogtopddetailpage">';
+							li.innerHTML = '<dl><dt><img src="'+ commUrl + ":" + commPort + dataproducts[i].ImgFileURL + '" />\
+										</dt><dd>\
+						                        <p>'+dataproducts[i].ProductName +'</p>\
+						                        <p><span>￥'+ parseInt(dataproducts[i].SchedulePrice)+'</span><font>' + parseInt(dataproducts[i].SoldAmount) +'人付款</font></p>\
+						                    </dd>\
+						                </dl>';
+	//					    li.innerHTML ='</a>';            
+							table.appendChild(li);
+						}
+					}, 1500);
+				}
 			}
+			
 			
 			mui('.mui-popover div').scroll();
 			
@@ -257,12 +297,11 @@
 				  	});
 				}) 
 			}
-//			window.addEventListener("popoveOnclick",function(data){
-////				var i = 0;
-//				var id = data.id;
-//				mui('#popover').popover('show',document.getElementById(id));	
-//			},false);
+
     </script>
+    
+    
+    
 </body>
 </html>
 

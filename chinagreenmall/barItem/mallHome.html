@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="../css/mui.css"/>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/slidenews.css" />
     <!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
    	<link rel="stylesheet" href="../css/iconfont.css" />
    	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+   	<script type="text/javascript" src="../js/jquery1.42.min.js" ></script>
+   	<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js" ></script>
 </head>
 
 	<style type="text/css">
@@ -177,10 +180,23 @@
 						    <div class="new_warp"> 
 						    
 						      <div class="new_cont">
-						          <ul>
-						              <li>《虚假交易处理规则》修订   </li>
-						              <li>《虚假交易处理规则》修订   </li>
-						          </ul>
+						          <div class="txtMarquee-top">
+			<div class="hd">
+				<a class="next"></a>
+				<a class="prev"></a>
+			</div>
+			<div class="bd">
+				<ul class="infoList">
+					<li><a href="#" target="_blank">中国打破了世界软件巨头规则</a></li>
+					<li><a href="#" target="_blank">口语：会说中文就能说英语！</a></li>
+					<li><a href="#" target="_blank">农场摘菜不如在线学外语好玩</a></li>
+					<li><a href="#" target="_blank">数理化老师竟也看学习资料？</a></li>
+					<li><a href="#" target="_blank">学英语送ipad2,45天突破听说</a></li>
+					<li><a href="#" target="_blank">学外语，上北外！</a></li>
+					<li><a href="#" target="_blank">那些无法理解的荒唐事</a></li>
+				</ul>
+			</div>
+		</div>
 						      </div>
 				  			</div>
   			
@@ -499,7 +515,7 @@
 		}
 		
 		
-		
+		$(".txtMarquee-top").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",vis:5,interTime:50});
 		
 	</script>
 </html>

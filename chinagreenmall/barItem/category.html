@@ -151,11 +151,16 @@
 //						barsIcon: ''
 ////						extendOptions: {categoryID:categoryID}
 //					})
+					var strId = this.getAttribute("id");
+					var cParentId = strId.split(",")[0];
+					var cCategoryId = strId.split(",")[1];
 					mui.openWindow({
 						id:id,
 						url:href,
 						extras:{
       						//自定义扩展参数，可以用来处理页面间传值
+      						parentId:cParentId, //传父类id
+      						categoryId:cCategoryId //传子类id
     					},
 						createNew:false
 					})
@@ -263,7 +268,7 @@
 				for (var i = 0; i< categorysubarraySub.length; i++) {
 //					<li class="testpopwindow"><a >大麦<i class="scr_icon1"></i></a></li>
 //					console.log(categorysubarraySub[i].productName)
-					var linew = '<li class="testpopwindow"><a>' + categorysubarraySub[i].productName + '<i class="scr_icon1"></i></a></li>';
+					var linew = '<li class="testpopwindow"><a id = "' + categorysubarraySub[i].parentID + "," + categorysubarraySub[i].categoryID+ '">' + categorysubarraySub[i].productName + '<i class="scr_icon1"></i></a></li>';
 					htmlCatg += linew;
 				}
 				htmlCatg += '</ul></div>';

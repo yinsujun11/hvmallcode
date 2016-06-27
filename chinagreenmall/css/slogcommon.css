@@ -97,3 +97,14 @@ border: 1px solid red;}
 .merchant_l{
 				border: 1px solid transparent
 			}
+.registerprotocolinfo{
+	color: #2AC845;
+	font-size: 0.8em;
+}
+.registerprotocloinfoheader{
+	font-size: 0.9em;
+}
+.registercheckboxcls{
+	margin-left: 15px;
+	margin-top: 15px;
+}

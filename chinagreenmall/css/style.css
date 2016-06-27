@@ -134,9 +134,9 @@ left:35%; top:50%; -webkit-transform:translate(0%,-50%);
 .like_list li  p font{ float:right; font-size:1em; line-height:2em; color:#999;}
 
 /*资讯模块样式*/
-.new_warp{ width:100%;  background:#fff; padding:10px 10px; box-sizing:border-box; overflow:hidden; }
+.new_warp{ width:100%;  background:#fff; padding:10px 10px; box-sizing:border-box; overflow:hidden; /*margin-top: 45px;*/}
 .new_cont{ background:url(../img/nwsbg_03.png) no-repeat left center;  padding-left:140px; height:80px; overflow:hidden; }
-.new_cont ul{ border-left:1px solid #ccc; padding-left:20px; }
+.new_cont ul{ /*border-left:1px solid #ccc;*/ padding-left:10px; }
 .new_cont ul li{ padding-left: 10px; 
 line-height: 40px;
 padding-top:-5px;background:url(../img/mainmall/news_point_03.png) no-repeat left center; /*font-size:24px;*/ height:40px; color:#444; overflow:hidden; }

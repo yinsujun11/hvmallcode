@@ -6,40 +6,56 @@
     <title>E3 父子模版</title>
     
     <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/own.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../css/own.css"/>-->
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
 	<style type="text/css">
     		/*下面两项是重置muicss的输入框label和input之间的宽比率*/
     		.mui-input-row label {
-    			width: 20%;
+    			width: 30%;
     		}
     		.mui-input-row label~input {
-    			width: 80%;
+    			/*width: 80%;*/
+    			float: left;
     		}
+    		
+    		a{
+    		color: #000000;
+    	}
+    	.mui-bar .mui-btn-nav.mui-pull-left{
+    		margin-left: 10px;
+    	}
+    	.mui-bar .mui-btn-link{
+    		color: #000000;
+    		
+    	}
+    	.mui-btn-link{
+    		color: #000000;
+    	}
     </style>
 </head>
 <body>
 	
-	<header class="mui-bar mui-bar-nav own-header-hidden">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h1 class="mui-title">注册</h1>
-	</header>
+	<header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <span class="mui-action-back mui-btn-link mui-btn-nav mui-pull-left">忘记密码</span>
+        <!--<span class="mui-icon iconfont icon-menu mui-pull-right"></span>-->
+    	</header>
 	
 	<div class="mui-content own-content-padding">
 		<div class="mui-card" style="margin-top: 30px;">
 			<form class="mui-input-group">
 				<div class="mui-input-row">
-					<label><span class="mui-icon iconfont icon-zhanghao"></span></label>
-					<input id="account" class="mui-input-clear" type="text" placeholder="输入手机或则邮箱" />
+					<label><span class="mui-icon iconfont icon-zhanghao">帐号</span></label>
+					<input id="account" class="mui-input-clear" type="text" placeholder="输入邮箱进行密码找回" />
 				</div>
 			</form>
 		</div>
 		<div class="mui-button-row" style="margin: 10px 15px;">
-			<button type="button" class="mui-btn mui-btn-block own-btn-green" style="padding: 5px 0px;">提交</button>
+			<button type="button" class="mui-btn mui-btn-block own-btn-green" style="padding: 5px 0px;" onclick="findpwd();">找回密码</button>
 		</div>
 	</div>
 	<script src="../js/mui.min.js" charset="UTF-8"></script>
-	<script src="../js/own.js" charset="UTF-8"></script>
+	<!--<script src="../js/own.js" charset="UTF-8"></script>-->
 	<script type="text/javascript" charset="UTF-8">
 		mui.init({
 			swipeBack:true
@@ -47,20 +63,57 @@
 		
 		var uploadBtn;
 		var account;
+		
+		account = document.querySelector('input[type="text"]');
+		uploadBtn = document.querySelector('button[type="button"]');
+		var curWebView = null;
+		
+//		var uMail = document.getElementById("uMailAddress");
 		mui.plusReady(function(){
-			account = document.querySelector('input[type="text"]');
-			uploadBtn = document.querySelector('button[type="button"]');
+			curWebView = plus.webview.currentWebview();
+		});
+//			uploadBtn.addEventListener('tap',function(){
+		function findpwd(){
 			
-			uploadBtn.addEventListener('tap',function(){
-				if(account.value.length <= 0){
-					mui.toast('请输入账号');
+			if(account.value.length <= 0){
+				mui.toast('请输入账号');
+				return;
+			}
+			
+			if(!isMatch(account.value,mailReg)){
+					mui.toast('邮箱格式不正确');
+					uMail.value = "";
 					return;
+			}
+			
+			var dataRegister = {
+					lFlag:3,
+					registerUEmail:account.value,
 				}
+				ajax_login_new("Leather/Home/AjaxService/SelLogindata.ashx",dataRegister,findResFunc)
+		}
+		
+		function findResFunc(dataRes){
+			console.log(dataRes);
+			
+			if(parseInt(dataRes) != -1){
+				var btnArray = ['否', '是'];
+				mui.toast('修改密码邮件发送成功，请查收');
+//				mui.confirm('修改密码邮件发送成功，请查收', '温馨提示', btnArray, function(e) {
+//					if (e.index == 1) {
+////						info.innerText = '你刚确认MUI是个好框架';
+//						curWebView.close();
+//						curWebView = null;
+//					} else {
+////						info.innerText = 'MUI没有得到你的认可，继续加油'
+//					}
+//				})
+			}
+			
+		}
 				
 				//联网发送信息todo
-			},false);
-		});
-		
+//			},false);
 	</script>
 </body>
 </html>

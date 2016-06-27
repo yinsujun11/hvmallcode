@@ -5,50 +5,102 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>E3父子模版</title>
     <link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/own.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../css/own.css"/>-->
     <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/slogcommon.css" />
     <style type="text/css">
     		/*下面两项是重置muicss的输入框label和input之间的宽比率*/
     		.mui-input-row label {
-    			width: 20%;
+    			width: 35%; 
+    			float: none;
+    			line-height:2.5;
     		}
     		.mui-input-row label~input {
-    			width: 80%;
+    			/*width: 80%;*/
+    			/*float: left;*/
     		}
+    		
+    		a{
+    		color: #000000;
+    	}
+    	.mui-bar .mui-btn-nav.mui-pull-left{
+    		margin-left: 10px;
+    	}
+    	.mui-bar .mui-btn-link{
+    		color: #000000;
+    		
+    	}
+    	.mui-btn-link{
+    		color: #000000;
+    	}
+    	.phonecodediv{
+    		margin-top: 10px;
+    	}
     </style>
 </head>
 <body>
 	
-	<header class="mui-bar mui-bar-nav own-header-hidden">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		<h1 class="mui-title">注册</h1>
-	</header>
+	<header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <span class="mui-action-back mui-btn-link mui-btn-nav mui-pull-left">用户注册</span>
+        <!--<span class="mui-icon iconfont icon-menu mui-pull-right"></span>-->
+    	</header>
 	
-	<div class="mui-content own-content-padding">
-		<div class="mui-card" style="margin-top: 30px;">
+	<div class="mui-content ">
+		<div class="phonecodediv">
 			<form class="mui-input-group">
-				<div class="mui-input-row">
-					<label><span class="mui-icon iconfont icon-zhanghao"></span></label>
-					<input id="account" class="mui-input-clear" type="text" placeholder="输入手机或则邮箱" />
+				
+				<div class="mui-input-row " style="display:-webkit-box;">
+					<label ><span class="mui-icon iconfont icon-zhanghao" ></span>真实姓名</label>
+					<input type="text" id="uRealname" class="mui-input-clear" style="display:-webkit-box;" value="小花" placeholder="请输入真实姓名" />
 				</div>
-				<div class="mui-input-row">
-					<label><span class="mui-icon iconfont icon-mimaxiugai"></span></label>
-					<input id="psd" class="mui-input-clear" type="password" placeholder="输入密码" />
+				
+				<div class="mui-input-row " style="display:-webkit-box;">
+					<label><span class="mui-icon iconfont icon-zhanghao" ></span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</label>
+					<input type="text" id="uMailAddress" class="mui-input-clear" style="display:-webkit-box;" value="111111@134.com" placeholder="请输入邮箱" />
 				</div>
-				<div class="mui-input-row">
-					<label><span class="mui-icon iconfont icon-queren"></span></label>
-					<input id="repsd" class="mui-input-clear" type="password" placeholder="确认密码" />
+				
+				<div class="mui-input-row " style="display:-webkit-box;">
+					<label ><span class="mui-icon iconfont icon-zhanghao" ></span>手机号码</label>
+					<input type="text" id="uPhoneCode" class="mui-input-clear" style="display:-webkit-box;" value="111111@134.com" placeholder="请输入手机号" />
 				</div>
+				
+				<div class="mui-input-row " style="display:-webkit-box;">
+					<label><span class="mui-icon iconfont icon-zhanghao" ></span>注册帐号</label>
+					<input type="text" id ="account"  class="mui-input-clear" style="display:-webkit-box;" value="ttmmgg" placeholder="4-16位字符，以字母开头，由字母、数字、下划线组成，区分大小写" />
+				</div>
+				
+				<div class="mui-input-row" style="display:-webkit-box;">
+					<label><span class="mui-icon iconfont icon-zhanghao"></span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+					<input type="password" id="psd" class="mui-input-clear" style="display:-webkit-box;" value="13881111755" placeholder="请输入注册密码" />
+					
+				</div>
+				
+				<div class="mui-input-row" style="display:-webkit-box;">
+					<label><span class="mui-icon iconfont icon-zhanghao"></span>确认密码</label>
+					<input type="password" id="repsd" class="mui-input-clear" style="display:-webkit-box;" value="13881111755" placeholder="请再次输入密码" />
+				</div>
+				
+				
 			</form>
 		</div>
+		<div class="registercheckboxcls">
+				<input name="Checkbox" id="protrolCheck" type="checkbox" checked>
+			    <label class="registerprotocloinfoheader">我已阅读并同意<span class="registerprotocolinfo">《华绿商城用户注册协议》</span></label>
+			    
+			</div>
 		<div class="mui-button-row" style="margin: 10px 15px;">
-			<button type="button" class="mui-btn mui-btn-block own-btn-green" style="padding: 5px 0px;">注册</button>
+			<button type="button" onclick="registerClickBtn();" class="mui-btn mui-btn-block own-btn-green" style="padding: 5px 0px;">注册</button>
 		</div>
+		
+			
+			
 	</div>
 	
 	<script src="../js/mui.min.js" charset="UTF-8"></script>
-	<script src="../js/own.js" charset="UTF-8"></script>
-	<script src="../js/ajax.js" charset="UTF-8"></script>
+	<!--<script src="../js/own.js" charset="UTF-8"></script>-->
+	<!--<script src="../js/ajax.js" charset="UTF-8"></script>-->
+	<script type="text/javascript" src="../js/common.js" ></script>
 	<script type="text/javascript" charset="UTF-8">
 		mui.init({
 			swipeBack:true
@@ -58,18 +110,66 @@
 		var psd;
 		var repsd;
 		var registerBtn ;
+		var accountReg = /^[a-zA-Z][\w]{3,15}$/;
+		var mailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		var phoneReg = /^(13[0-9]|15[0-9]|18[0-9])\d{8}$/;
+		
+		account = document.getElementById('account');
+		psd = document.getElementById('psd');
+		repsd = document.getElementById('repsd');
+		registerBtn = document.querySelector('button[type="button"]');
+		var realName = document.getElementById("uRealname");
+		
+		var uMail = document.getElementById("uMailAddress");
+		
+		var uPhone = document.getElementById("uPhoneCode");
+		
+		var curWebView = null;
+		
 		mui.plusReady(function(){
-			account = document.getElementById('account');
-			psd = document.getElementById('psd');
-			repsd = document.getElementById('repsd');
-			registerBtn = document.querySelector('button[type="button"]');
+			curWebView = plus.webview.currentWebview();
 			
+		});
+		
+//		registerBtn.addEventListener('tap',function(){
+			function registerClickBtn(){
+				
+				if (realName.value.length <= 0 ){
+					mui.toast('真实姓名必填');
+					return;
+				}
+				
+				if(uMail.length <= 0){
+					mui.toast('请输入要注册的邮箱');
+					return;
+				}
+				
+				if(!isMatch(uMail.value,mailReg)){
+					mui.toast('邮箱格式不正确');
+					uMail.value = "";
+					return;
+				}
 			
-			registerBtn.addEventListener('tap',function(){
+				if(uPhone.length <= 0){
+					mui.toast('请输入要注册的手机号码');
+					return;
+				}
+				
+				if(!isMatch(uPhone.value,phoneReg)){
+					mui.toast('手机号码不正确');
+					uPhone.value = "";
+					return;
+				}
+			
 				if (account.value.length <= 0) {
 					mui.toast('请输入要注册的账号');
 					return;
+				}else if(!isMatch(account.value,accountReg)){
+					mui.toast('请输入格式正确的注册账号');
+					account.value = "";
+					return;	
 				}
+				
 				if (psd.value.length <= 0){
 					mui.toast('请输入密码');
 					return;
@@ -79,19 +179,34 @@
 					return;
 				}
 				
-				//联网注册
-				ajax_register({
-					account:account.value,
-					pwd:repsd.value,
-					website_id:'1'
-				});
-			},false);
-			
-		});
-		
-		function registerSeccess(data) {
-			if (data.code == '000000') {
 				
+				var dataRegister = {
+					lFlag:2,
+					registerURealName:realName.value,
+					registerUEmail:uMail.value,
+					registerUName:account.value,
+					registerUMobile:uPhone.value,
+//					registerUPhone: ,
+					registerPwd:psd.value
+				}
+				ajax_login_new("Leather/Home/AjaxService/SelLogindata.ashx",dataRegister,registerResFunc)
+//		});
+		}
+		
+		function registerResFunc(dataRes){
+			console.log(dataRes);
+			
+			if(parseInt(dataRes) != -1){
+				var btnArray = ['否', '是'];
+				mui.confirm('注册成功，是否到登录页面马上进行登录？', '温馨提示', btnArray, function(e) {
+					if (e.index == 1) {
+//						info.innerText = '你刚确认MUI是个好框架';
+						curWebView.close();
+						curWebView = null;
+					} else {
+//						info.innerText = 'MUI没有得到你的认可，继续加油'
+					}
+				})
 			}
 		}
 	</script>

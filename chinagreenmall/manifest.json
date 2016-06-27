@@ -290,9 +290,18 @@
 			},
 			"mine/login.html": {
 				"resources": [
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"js/own.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/common.js"
 				],
-				"refer": [],
+				"refer": [
+					"mine/forget-psd-needtem.html",
+					"mine/register-needtem.html"
+				],
 				"priority": 0
 			},
 			"barItem/cart.html": {
@@ -341,7 +350,10 @@
 					"img/mainmall/more_03.png",
 					"css/iconfont.css",
 					"fonts/iconfont.ttf",
-					"js/common.js"
+					"js/common.js",
+					"js/jquery.SuperSlide.2.1.1.js",
+					"css/slidenews.css",
+					"js/jquery1.42.min.js"
 				],
 				"refer": [
 					"Home/mainhomesearch.html"
@@ -406,7 +418,8 @@
 					"css/style.css",
 					"js/mui.js",
 					"img/mainmall/s_iocn_06.png",
-					"img/mainmall/siocn2_06.png"
+					"img/mainmall/siocn2_06.png",
+					"js/common.js"
 				],
 				"refer": [
 					"products/productdetail.html"
@@ -618,6 +631,52 @@
 			"findsprod/findjobs.html": {
 				"resources": [
 					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/forget-psd-needtem.html": {
+				"resources": [
+					"css/own.css",
+					"js/own.js",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"mine/register-needtem.html": {
+				"resources": [
+					"css/slogcommon.css",
+					"js/own.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"js/common.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"findsprod/findsupportgive.html": {
+				"resources": [
+					"js/common.js",
+					"css/slogcommon.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js",
+					"fonts/mui.ttf"
+				],
+				"refer": [
+					"findsprod/supportdetial.html"
+				],
+				"priority": 0
+			},
+			"findsprod/supportdetial.html": {
+				"resources": [
+					"css/shopstore.css"
 				],
 				"refer": [],
 				"priority": 0

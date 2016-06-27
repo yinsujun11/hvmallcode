@@ -16,6 +16,7 @@ var commPort = "888";
 						dataType:"json",
 						type:'GET',
 						crossDomain:true,
+						timeout:10000,
 						success:function(e){
 							fn(e);	
 						},
@@ -27,5 +28,75 @@ var commPort = "888";
 			
 		}
 	
+	w.ajax_login_new = function(suburl,options,fn){
+		var urlAll = commUrl + ":" + commPort +"/" + suburl;
+		console.log(urlAll);
+		mui.ajax(urlAll,{
+			data:options,
+			dataType:"json",
+			type:'GET',
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				console.log(data)
+				fn(data);
+			},
+			error:function(xhr,type,errorThrown){
+//				fn(data);
+			}
+		});
+	}
 	
+	w.ajax_login_other = function(suburl,options,fn){
+		var urlAll = commUrl + ":" + commPort +"/" + suburl;
+		console.log(urlAll);
+		mui.ajax(urlAll,{
+			data:options,
+			dataType:"json",
+			type:'GET',
+//			async:false,
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				console.log(data)
+				fn(data);
+			},
+			error:function(xhr,type,errorThrown){
+//				fn(data);
+			}
+		});
+	}
+	
+	/**
+	 * 同步请求
+	 * @param {Object} suburl
+	 * @param {Object} options
+	 * @param {Object} ul
+	 * @param {Object} pageIn
+	 * @param {Object} fn
+	 */
+	w.ajax_login_other_sync = function(suburl,options,ul,pageIn,fn){
+		var urlAll = commUrl + ":" + commPort +"/" + suburl;
+		console.log(urlAll);
+		mui.ajax(urlAll,{
+			data:options,
+			dataType:"json",
+			type:'GET',
+			async:false,
+			timeout:10000,//超时时间设置为10秒；
+			success:function(data){
+				console.log(data)
+				console.log('ul' + ul + 'pagein' + pageIn);
+				fn(ul,pageIn,data);
+			},
+			error:function(xhr,type,errorThrown){
+//				fn(data);
+			}
+		});
+	}
+	
+	w.isMatch = function(srcMatchStr,regxStr){
+		if(!regxStr.test(srcMatchStr)){
+			return false; //不符合条件
+		}
+		return true;
+	}
 })(window);

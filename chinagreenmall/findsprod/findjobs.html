@@ -68,7 +68,20 @@
     
     <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-    mui.init()
+    mui.init({
+					pullRefresh: {
+						container: '#pullrefresh',
+						down: {
+							callback: pulldownRefresh
+						},
+						up: {
+							contentrefresh: '正在加载...',
+							callback: pullupRefresh
+						}
+						}
+					})
+    	
+    
     
     mui('.mui-table-view-cell').on('tap','a',function(){
       mui.openWindow({
@@ -80,6 +93,8 @@
 						createNew:false
 					});
     }) 
+    
+    
     </script>
 </body>
 </html>
