@@ -17,56 +17,41 @@
 	a:active{
 		color: #777;
 	}
+	
+	.mui-pull{
+		margin-top: 46px;
+	}
+	
+	.mui-bar~.mui-content .mui-fullscreen {
+		top: 44px;
+		height: auto;
+	}
+			
+	.mui-slider-indicator.mui-segmented-control {
+		background-color: #efeff4;
+	}
+	.mui-pull-bottom-wrapper{
+		text-align: center;
+	}
 </style>
 
 <body>
     
-    <ul class="mui-table-view">
-            <li class="mui-table-view-cell">
-                <a >
-                    <div class="join_warp">
-						<strong>微信营销推广主管</strong>
-						<span><span>3500~4500</span>元/月</span>  
-						<div>			    
-						<spn class="mui-icon mui-icon-location">湘潭雨湖  </span>
-						</div>
-						<a href="#"><spn class = "mui-pull-left">湖南微信网络科技有限公司</spn>
-							<span class="mui-pull-right">今天</span>
-						</a>
+    	 <!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				
+					<div id="recommend" class="mui-table-view mui-grid-view own-gray-color like_list">
+					<!--数据列表-->
+						<ul class="mui-table-view mui-table-view-chevron">
+						</ul>
 					</div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a >
-                     <div class="join_warp">
-						<strong>微信营销推广主管</strong>
-						<span><span>3500~4500</span>元/月</span>  
-						<div>			    
-						<spn class="mui-icon mui-icon-location">湘潭雨湖  </span>
-						</div>
-						<a href="#"><spn class = "mui-pull-left">湖南微信网络科技有限公司</spn>
-							<span class="mui-pull-right">今天</span>
-						</a>
-					</div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell">
-                <a >
-                     <div class="join_warp">
-						<strong>微信营销推广主管</strong>
-						<span><span>3500~4500</span>元/月</span>  
-						<div>			    
-						<spn class="mui-icon mui-icon-location">湘潭雨湖  </span>
-						</div>
-						<a href="#"><spn class = "mui-pull-left">湖南微信网络科技有限公司</spn>
-							<span class="mui-pull-right">今天</span>
-						</a>
-					</div>
-                </a>
-            </li>
-        </ul>
-    
+				
+			</div>
+		</div>
+    	
     <script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
     <script type="text/javascript">
     mui.init({
 					pullRefresh: {
@@ -79,9 +64,128 @@
 							callback: pullupRefresh
 						}
 						}
-					})
+				});
     	
-    
+    	
+    	/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				var ul = self.element.querySelector('.mui-table-view');
+				curGivePage++;
+				demandType = 1;
+				dataParams = {
+							currentPage:curGivePage,
+							industryid:2,
+							companyId:companyId,
+							pageSize:10
+						};
+				var fragment = document.createDocumentFragment();
+				ajax_login_other_sync(reqUrl,dataParams,ul,pageIn,createFragment);
+				
+			}
+			
+			var createFragment = function(ul, page,arrData) {
+						var length = ul.querySelectorAll('li').length;
+						var li;
+						
+						setTimeout(function() {
+//						var table = document.body.querySelector('.mui-table-view');
+						var cells = document.body.querySelectorAll('.mui-table-view-cell');
+						var lenArr = arrData;
+						for (var i = cells.length, len = i + lenArr; i < len; i++) {
+							li = document.createElement('li');
+							li.className = 'mui-table-view-cell';
+//							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							li.innerHTML = '<div class="join_warp">\
+											<strong>'+resData.msg[i].DemandName+'</strong>\
+											<div><spn >对接方向：<a style="color:#F0AD4E">'+resData.msg[i].DirectionName +'</a>  </span>\
+											</div>\
+											<a href="#"><spn class = "mui-pull-left">'+resData.msg[i].CompanyName+'</spn>\
+												<span class="mui-pull-right">'+resData.msg[i].CreateDate.split(" ")[0]+'</span>\
+											</a>\
+										</div>';
+							//下拉刷新，新纪录插到最前面；
+							ul.insertBefore(li, table.firstChild);
+						}
+						mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+					}, 1500);
+					};
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				 var ul = self.element.querySelector('.mui-table-view');
+				curGivePage++;
+				dataParams = {
+							currentPage:curGivePage,
+							industryid:2,
+							companyId:companyId,
+							pageSize:10
+						};
+				var fragment = document.createDocumentFragment();
+				ajax_login_other_sync(reqUrl,dataParams,ul,pageIn,createFragment);
+			}
+    	
+    (function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				
+				
+				var dataParams;
+				var reqUrl = "Leather/Home/AjaxService/SelTalentSel.ashx";
+				var curGivePage = 1;
+//				console.log(localStorage.getItem('userCompId'));
+		    	initGiveUiData(curGivePage);
+				
+				function initGiveUiData(curGivePage){
+		    	//初始化需求信息
+		    	var compLocal = localStorage.getItem('userCompId');
+				curPage = 1;
+				var companyId = "-1";
+				if(compLocal != undefined && compLocal != ""){
+					companyId = compLocal;
+				}
+		    	dataParams = {
+					currentPage:curGivePage,
+					industryid:2,
+					companyId:companyId,
+					pageSize:10
+				};
+		    	ajax_login_other(reqUrl,dataParams,givResFunc);
+		    }
+				
+				function givResFunc(resData){
+		    	console.log("job" + resData.total + "--- resdata" + resData.msg[0].DemandType)
+
+				var recommend = document.getElementById('recommend');
+				
+				for (var i=0; i < resData.msg.length; i++) {
+					var charge = resData.msg[i].charge_name == "面议"?true:false;
+					console.log("job boolean--" + charge);
+					li.innerHTML += '<li class="mui-table-view-cell">';
+					li.innerHTML += '<div class="join_warp">';
+					li.innerHTML += '<div class="text_head_title">'+resData.msg[i].JobName+'</div>';
+//							if(charge){
+					li.innerHTML += '<span class=""><span>'+resData.msg[i].charge_name+'</span>元/月</span>';
+//							}else{
+//							sul.innerHTML += '<span>'+resData.msg[i].charge_name+'</span>';
+//							}
+					li.innerHTML += '<span class="mui-icon mui-icon-location ">'+ resData.msg[i].city1 + ' ' + resData.msg[i].city2 + ' ' + resData.msg[i].city3 +'</span>';
+					li.innerHTML +='<a href="#"><span class = "mui-pull-left">'+resData.msg[i].companyname+'</span>';
+					li.innerHTML +='<span class="mui-pull-right">'+ resData.msg[i].CreateTime.split(' ')[0]+'</span></a>';
+					li.innerHTML +='</div></li>';
+					recommend.appendChild(li);
+				}
+		    }
+				
+			})(mui);
     
     mui('.mui-table-view-cell').on('tap','a',function(){
       mui.openWindow({
@@ -93,6 +197,7 @@
 						createNew:false
 					});
     }) 
+    
     
     
     </script>

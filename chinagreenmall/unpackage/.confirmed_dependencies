@@ -429,7 +429,13 @@
 	},
 	"findsprod/findjobs.html": {
 		"resources": [
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js",
+			"js/common.js",
+			"css/slogcommon.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": []
 	},
